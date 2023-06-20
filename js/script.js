@@ -9,31 +9,48 @@ const app = createApp({
       return {
         tasks: [
           {
+            id: 1,
             name: 'Fare la spesa',
-            done: true,
+            done: false,
           },
           {
+            id: 2,
             name: 'Tagliando alla macchina',
             done: false,
           },
           {
+            id: 3,
             name: 'Pagare le tasse :(',
-            done: false,
+            done: true,
           },
           {
+            id: 4,
             name: 'Bere 2 litri di acqua',
             done: false,
           },
           {
+            id: 5,
             name: 'Prendere appuntamento con ciccio o pippo',
             done: false,
           },
           {
+            id: 6,
             name: 'Pulire casa',
             done: false,
           },
         ]
       }
-    }
+    },
+
+    computed: {
+
+    },
+
+    methods: {
+      // Metodo per cancellare dal mio array di oggetti, un oggetto in base all'id 
+      removeTask(target){
+        this.tasks = this.tasks.filter(task => target !== task.id)  
+      }
+    },
   })
   app.mount("#app");
