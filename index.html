@@ -29,9 +29,20 @@
     <div id="app">
         <div class="container">
             <div class="w-50 m-auto mt-5">
+                <!-- Search bar  -->
+                <h2 class="mt-5 text-center">Cerca tra i tuoi tasks</h2>
+                <div class="my-3 d-flex">
+                    <textarea class="form-control" rows="1" maxlength="40" placeholder="Cerca quì" style="resize: none;"
+                        v-model="searchValue" autofocus @keyup.enter="addTask"></textarea>
+                    <button type="button" class="btn btn-outline-primary" @click="addTask">Search</button>
+
+                </div>
+
+
+                <!-- Tasks to do   -->
                 <h1 class="text-center">Todo list bro</h1>
                 <ul class="list-group w-100 ">
-                    <label v-for="task in tasks">
+                    <label v-for="task in filteredTasks">
                         <li class="list-group-item d-flex align-items-center justify-content-between "
                             :class="{'text-decoration-line-through' : task.done}">
                             <input type="checkbox" v-model="task.done">
@@ -40,6 +51,8 @@
                     <button type="button" class="btn-close" @click="removeTask(task.id)"></button>
                     </li>
                 </ul>
+
+                <!-- New task  -->
                 <h2 class="mt-5 text-center">Inserisci quì un nuovo task</h2>
                 <div class="my-3 d-flex">
                     <textarea class="form-control" rows="1" maxlength="40"

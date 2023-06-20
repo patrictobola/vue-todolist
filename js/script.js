@@ -40,6 +40,7 @@ const app = createApp({
           },
         ],
         newTask: '',
+        searchValue: '',
       }
     },
 
@@ -51,7 +52,14 @@ const app = createApp({
             if (task.id > actualId) actualId = task.id;
           });
           return ++actualId;
-      }
+      },
+      filteredTasks() {
+        const searchedWord = this.searchValue.toLowerCase();
+        return this.tasks.filter((task) => {
+          return task.name.toLowerCase().includes(searchedWord);
+        })
+      },
+
     },
 
     methods: {
