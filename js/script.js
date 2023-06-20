@@ -7,7 +7,32 @@ const { createApp } = Vue;
 const app = createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        tasks: [
+          {
+            name: 'Fare la spesa',
+            done: true,
+          },
+          {
+            name: 'Tagliando alla macchina',
+            done: false,
+          },
+          {
+            name: 'Pagare le tasse :(',
+            done: false,
+          },
+          {
+            name: 'Bere 2 litri di acqua',
+            done: false,
+          },
+          {
+            name: 'Prendere appuntamento con ciccio o pippo',
+            done: false,
+          },
+          {
+            name: 'Pulire casa',
+            done: false,
+          },
+        ]
       }
     }
   })
