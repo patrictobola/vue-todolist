@@ -44,7 +44,14 @@ const app = createApp({
     },
 
     computed: {
-
+      // Controllo qual è l'id più alto e ne assegno uno più alto in data
+      newId() {
+          let actualId = 0;
+          this.tasks.forEach(task => {
+            if (task.id > actualId) actualId = task.id;
+          });
+          return ++actualId;
+      }
     },
 
     methods: {
@@ -52,17 +59,17 @@ const app = createApp({
       removeTask(target){
         this.tasks = this.tasks.filter(task => target !== task.id)  
       },
-
+      // Aggiunge un nuovo task nella lista 
       addTask(){
-        this.tasks.push(
-          {
-            id: 0,
+        this.tasks.push({
+            id: this.newId,
             name: this.newTask,
             done: false
-          }
-          )
+          })
         this.newTask = ''
-      }
+      },
+
+      
     },
   })
   app.mount("#app");
