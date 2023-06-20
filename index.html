@@ -31,10 +31,13 @@
             <div class="w-50 m-auto mt-5">
                 <h1 class="text-center">Todo list bro</h1>
                 <ul class="list-group w-100 ">
-                    <li v-for="task in tasks" class="list-group-item d-flex align-items-center justify-content-between "
-                        :class="{'text-decoration-line-through' : task.done}">
-                        {{task.name}}
-                        <button type="button" class="btn-close"></button>
+                    <label v-for="task in tasks">
+                        <li class="list-group-item d-flex align-items-center justify-content-between "
+                            :class="{'text-decoration-line-through' : task.done}">
+                            <input type="checkbox" v-model="task.done">
+                            {{task.name}}
+                    </label>
+                    <button type="button" class="btn-close"></button>
                     </li>
 
                 </ul>
