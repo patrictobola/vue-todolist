@@ -38,7 +38,8 @@ const app = createApp({
             name: 'Pulire casa',
             done: false,
           },
-        ]
+        ],
+        newTask: '',
       }
     },
 
@@ -50,6 +51,17 @@ const app = createApp({
       // Metodo per cancellare dal mio array di oggetti, un oggetto in base all'id 
       removeTask(target){
         this.tasks = this.tasks.filter(task => target !== task.id)  
+      },
+
+      addTask(){
+        this.tasks.push(
+          {
+            id: 0,
+            name: this.newTask,
+            done: false
+          }
+          )
+        this.newTask = ''
       }
     },
   })

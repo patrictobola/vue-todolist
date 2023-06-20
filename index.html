@@ -39,8 +39,15 @@
                     </label>
                     <button type="button" class="btn-close" @click="removeTask(task.id)"></button>
                     </li>
-
                 </ul>
+                <h2 class="mt-5 text-center">Inserisci quì un nuovo task</h2>
+                <div class="my-3 d-flex">
+                    <textarea class="form-control" rows="1" maxlength="40"
+                        placeholder="es. Fare gli esercizi che ci vengono assegnati da boolean" style="resize: none;"
+                        v-model="newTask" autofocus></textarea>
+                    <button type="button" class="btn btn-outline-success" @click="addTask">Inserisci</button>
+
+                </div>
             </div>
         </div>
 
